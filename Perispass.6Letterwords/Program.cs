@@ -1,0 +1,64 @@
+﻿using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+
+class Program
+{
+    static void Main()
+    {
+        // Don't care > 6 chars
+        var words = File.ReadAllLines("input.txt")
+            .Select(w => w.Trim().ToLowerInvariant())
+            .Where(w => !string.IsNullOrEmpty(w) && w.Length <= 6)
+            .Distinct()
+            .ToList();
+
+        // hashsets for efficiency
+        var wordPartSet = new HashSet<string>(words.Where(w => w.Length < 6));
+        var existing6LetterWordsInFile = new HashSet<string>(words.Where(w => w.Length == 6));
+
+
+        // run combo check
+        var visitedPaths = new HashSet<string>();
+        foreach (var word in wordPartSet)
+        {
+            FindCombinations(word, new List<string> { word }, wordPartSet, existing6LetterWordsInFile, visitedPaths);
+        }
+    }
+
+    // recursivly check paths for combo's
+    static void FindCombinations(
+        string current,
+        List<string> path,
+        HashSet<string> wordPartSet,
+        HashSet<string> existing6LetterWordsInFile,
+        HashSet<string> visitedPaths
+    )
+    {
+        // combo could be bigger than 6
+        if (current.Length > 6)
+            return;
+
+        // 6chars could be a word in list
+        if (current.Length == 6)
+        {
+            if (existing6LetterWordsInFile.Contains(current))
+            {
+                string pathKey = string.Join("+", path);
+                if (visitedPaths.Add(pathKey)) 
+                {
+                    Console.WriteLine($"{pathKey}={current}");
+                }
+            }
+            return;
+        }
+
+        // too short find next
+        foreach (var word in wordPartSet)
+        {
+            path.Add(word);
+            FindCombinations(current + word, path, wordPartSet, existing6LetterWordsInFile, visitedPaths);
+            path.RemoveAt(path.Count - 1);
+        }
+    }
+}
