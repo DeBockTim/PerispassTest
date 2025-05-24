@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.12.35527.113 d17.12
+VisualStudioVersion = 17.12.35527.113
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Perispass.6Letterwords", "Perispass.6Letterwords\Perispass.6Letterwords.csproj", "{B9CB4A16-FDCE-4FD8-B234-5781AA540111}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Peripass.6Letterwords.Tests", "Peripass.6Letterwords.Tests\Peripass.6Letterwords.Tests.csproj", "{6375312C-9FC0-44F9-8AFC-5EA3C741760E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{B9CB4A16-FDCE-4FD8-B234-5781AA540111}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9CB4A16-FDCE-4FD8-B234-5781AA540111}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9CB4A16-FDCE-4FD8-B234-5781AA540111}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6375312C-9FC0-44F9-8AFC-5EA3C741760E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6375312C-9FC0-44F9-8AFC-5EA3C741760E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6375312C-9FC0-44F9-8AFC-5EA3C741760E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6375312C-9FC0-44F9-8AFC-5EA3C741760E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
